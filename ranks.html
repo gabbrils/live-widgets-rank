@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+        
+        body, html {
+            background: transparent;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+
+        .cycle-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* Configuração das janelas de Ranking */
+        .rank-item {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            opacity: 0; /* Começam invisíveis */
+            transition: opacity 1.5s ease-in-out; /* Transição suave de 1.5s */
+            pointer-events: none;
+            transform: scale(0.8); /* Ajuste de zoom opcional */
+            transform-origin: top center;
+        }
+
+        /* Classe que o JavaScript vai alternar */
+        .active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cycle-container">
+        <iframe id="rank1" class="rank-item active" src="https://tikfinity.zerody.one/widget/topliker?cid=2619015"></iframe>
+
+        <iframe id="rank2" class="rank-item" src="https://tikfinity.zerody.one/widget/ranking?cid=2619015"></iframe>
+
+        <iframe id="rank3" class="rank-item" src="https://tikfinity.zerody.one/widget/topgifter?cid=2619015"></iframe>
+    </div>
+
+    <script>
+        const ranks = document.querySelectorAll('.rank-item');
+        let currentIndex = 0;
+
+        function rotateRanks() {
+            // Remove a classe 'active' do item atual
+            ranks[currentIndex].classList.remove('active');
+
+            // Calcula o próximo índice (volta ao zero após o último)
+            currentIndex = (currentIndex + 1) % ranks.length;
+
+            // Adiciona a classe 'active' ao próximo item
+            ranks[currentIndex].classList.add('active');
+        }
+
+        // Executa a troca a cada 30.000 milissegundos (30 segundos)
+        setInterval(rotateRanks, 30000);
+    </script>
+
+</body>
+</html>
