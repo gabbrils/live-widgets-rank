@@ -17,13 +17,13 @@
             font-family: sans-serif;
         }
 
-        /* Configuração do Banner do Livepix */
+        /* Configuração do Banner do Livepix (Fixo no canto superior esquerdo) */
         .livepix-banner {
             position: absolute;
-            top: 0; /* Se quiser descer o banner um pouquinho para alinhar com o primeiro item, mude para algo como top: 20px; */
-            left: 10%; /* 10% é o valor exato onde o ranking de scale(0.8) começa */
-            width: 250px; /* Largura ajustada para o formato do QR Code da imagem */
-            height: 400px; /* Altura ajustada para o formato do QR Code da imagem */
+            top: 0;
+            left: 0;
+            width: 350px;  /* Você pode ajustar a largura aqui */
+            height: 150px; /* Você pode ajustar a altura aqui */
             border: none;
             z-index: 9999; /* Garante que ficará sempre por cima das outras janelas */
         }
@@ -48,8 +48,8 @@
             opacity: 0; /* Começam invisíveis */
             transition: opacity 1.5s ease-in-out; /* Transição suave de 1.5s */
             pointer-events: none;
-            transform: scale(0.8); /* O ranking fica com 80% do tamanho */
-            transform-origin: top center; /* Centralizado no topo */
+            transform: scale(0.8); /* Ajuste de zoom opcional */
+            transform-origin: top center;
         }
 
         /* Classe que o JavaScript vai alternar */
@@ -61,7 +61,7 @@
 </head>
 <body>
 
-    <!-- Link 1: BANNER DO LIVEPIX (Fixo e alinhado ao ranking) -->
+    <!-- Link 1: BANNER DO LIVEPIX (Fixo no canto superior esquerdo) -->
     <iframe class="livepix-banner" src="https://widget.livepix.gg/embed/c80de831-d76e-4340-a5f0-7ef88294b32f"></iframe>
 
     <!-- Links 2 a 5: RANKINGS ROTATIVOS -->
