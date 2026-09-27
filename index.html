@@ -17,6 +17,18 @@
             font-family: sans-serif;
         }
 
+        /* Configuração do Banner do Livepix (Fixo no canto superior esquerdo) */
+        .livepix-banner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 350px;  /* Você pode ajustar a largura aqui */
+            height: 150px; /* Você pode ajustar a altura aqui */
+            border: none;
+            z-index: 9999; /* Garante que ficará sempre por cima das outras janelas */
+        }
+
+        /* Contêiner dos rankings rotativos */
         .cycle-container {
             position: relative;
             width: 100%;
@@ -49,15 +61,26 @@
 </head>
 <body>
 
+    <!-- Link 1: BANNER DO LIVEPIX (Fixo no canto superior esquerdo) -->
+    <iframe class="livepix-banner" src="https://widget.livepix.gg/embed/c80de831-d76e-4340-a5f0-7ef88294b32f"></iframe>
+
+    <!-- Links 2 a 5: RANKINGS ROTATIVOS -->
     <div class="cycle-container">
+        <!-- Link 2 -->
         <iframe id="rank1" class="rank-item active" src="https://tikfinity.zerody.one/widget/topliker?cid=3608952"></iframe>
 
+        <!-- Link 3 -->
         <iframe id="rank2" class="rank-item" src="https://tikfinity.zerody.one/widget/ranking?cid=3608952"></iframe>
 
-        <iframe id="rank3" class="rank-item" src="https://widget.livepix.gg/embed/c80de831-d76e-4340-a5f0-7ef88294b32f"></iframe>
+        <!-- Link 4 -->
+        <iframe id="rank3" class="rank-item" src="COLOQUE_SEU_LINK_AQUI"></iframe>
+        
+        <!-- Link 5 -->
+        <iframe id="rank4" class="rank-item" src="COLOQUE_SEU_LINK_AQUI"></iframe>
     </div>
 
     <script>
+        // O JavaScript agora vai pegar apenas os 4 iframes de ranking para rotacionar
         const ranks = document.querySelectorAll('.rank-item');
         let currentIndex = 0;
 
